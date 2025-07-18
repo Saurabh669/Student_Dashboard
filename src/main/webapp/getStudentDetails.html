@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student List</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+      color: white;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #6a5af9, #8a75f8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .update-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .delete-btn {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Students</h1>
+  <div id="student-table">
+    <!-- Table will be loaded here from servlet -->
+  </div>
+
+  <script>
+    window.onload = () => {
+      fetch('getStudents')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("student-table").innerHTML = data;
+        });
+    };
+
+    function updateStudent(rollNo) {
+      window.location.href = `update-student.html?rollNo=${rollNo}`;
+    }
+
+    function deleteStudent(rollNo) {
+      if (confirm("Are you sure you want to delete this student?")) {
+        fetch(`deleteStudent?rollNo=${rollNo}`, {
+          method: 'POST'
+        })
+        .then(res => res.text())
+        .then(msg => {
+          alert(msg);
+          location.reload();
+        });
+      }
+    }
+  </script>
+</body>
+</html>

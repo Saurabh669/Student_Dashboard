@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	background-image:
+		url('https://i.pinimg.com/736x/9f/2e/c3/9f2ec3315282bac5122d2084bad448ef.jpg');
+	/* Replace with your image path */
+	background-size: cover; /* Ensure the image covers the full area */
+	background-position: center center; /* Center the image */
+	background-repeat: no-repeat; /* Prevent tiling */
+	background-attachment: fixed;
+	/* Optional: keeps image fixed while scrolling */
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	background: rgba(255, 255, 255, 1);
+	padding: 40px 60px;
+	border-radius: 15px;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+	text-align: center;
+}
+
+.container h1 {
+	margin-bottom: 30px;
+	color: #333;
+}
+
+.btn {
+	display: block;
+	width: 200px;
+	padding: 12px 0;
+	margin: 10px auto;
+	font-size: 16px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	transition: 0.3s ease;
+	text-decoration: none;
+}
+
+.btn:hover {
+	background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Welcome to Student Portal</h1>
+		<a href="studentDetails.jsp" class="btn">Student Details</a> <a
+			href="getStudent.jsp" class="btn">Get Student Details</a>
+	</div>
+
+</body>
+</html>

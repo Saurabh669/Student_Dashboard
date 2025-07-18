@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #5b63ff;
+      --accent-color: #8665f8;
+      --text-color: #ffffff;
+      --glass-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .registration-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 500px;
+      max-height: 95vh;
+      padding: 30px 25px;
+      color: var(--text-color);
+      overflow-y: auto;
+    }
+
+    .registration-card h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--main-color), var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: bold;
+      
+      
+    }
+
+    .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 0.95rem;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+    }
+
+    .form-group select option {
+      background-color: rgba(36, 36, 62, 0.95);
+      color: #ffffff;
+      
+      
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+      
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 8px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #ccc;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .radio-group input[type="radio"] {
+      accent-color: var(--accent-color);
+    }
+
+    .radio-group label:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .button-group {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .button-group button {
+      padding: 10px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 14px;
+      font-weight: 600;
+      background: linear-gradient(to right, var(--main-color), var(--accent-color));
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .button-group button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 480px) {
+      .registration-card {
+        padding: 25px 20px;
+      }
+
+      .registration-card h1 {
+        font-size: 1.5rem;
+      }
+
+      .form-group label,
+      .form-group input,
+      .form-group select {
+        font-size: 0.9rem;
+      }
+
+      .button-group button {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="registration-card">
+    <h1>Student Registration</h1>
+    <form id="studentForm" action="studentForm" method="post">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="branch">Branch</label>
+        <select id="branch" name="branch" required>
+          <option value="">Select Branch</option>
+          <option value="CSE">Computer Science</option>
+          <option value="IT">Civil</option>
+          <option value="ECE">Electrical and Computer Engineering</option>
+          <option value="ME">Mechanical</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Male" required> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="passingYear">Year of Passing</label>
+        <select id="passingYear" name="passingYear" required>
+          <option value="">Select Year</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <div class="button-group">
+        <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const passingYearSelect = document.getElementById("passingYear");
+      const currentYear = new Date().getFullYear();
+      for (let year = currentYear - 10; year <= currentYear + 2; year++) {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        passingYearSelect.appendChild(option);
+      }
+
+      const form = document.getElementById("studentForm");
+      form.addEventListener("submit", function (e) {
+        const dobInput = document.getElementById("dob").value;
+        if (!dobInput) return;
+        const dob = new Date(dobInput);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const m = today.getMonth() - dob.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+          age--;
+        }
+        if (age < 18 || age > 45) {
+          e.preventDefault();
+          alert("Age must be between 18 and 45 years.");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

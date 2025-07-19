@@ -1,96 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Success Page</title>
-<style>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Success - Student Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.12);
+      --main-color: #5b63ff;
+      --accent-color: #8665f8;
+      --text-color: #ffffff;
+    }
 
-body {
-	background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6),
-		rgba(0, 0, 0, 0.6)),
-		url('https://i.pinimg.com/736x/17/a3/9b/17a39b21fa1c6bf03aac4dfd17691fa6.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 100vh;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.container {
-	background-color: rgba(255, 255, 255, 0.70);
-	padding: 40px 30px;
-	border-radius: 20px;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-	text-align: center;
-	max-width: 500px;
-	width: 100%;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+      color: var(--text-color);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-.container h1 {
-	margin-bottom: 35px;
-	font-size: 36px;
-	font-weight: 700;
-	color: rgb(35, 32, 32);
-}
+    .container {
+      background: var(--glass-bg);
+      backdrop-filter: blur(25px);
+      padding: 40px 30px;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      animation: fadeIn 1s ease-in-out forwards;
+      transform: translateY(40px);
+      opacity: 0;
+    }
 
-.button-group {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: center;
-}
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.btn-link {
-	display: inline-block;
-	padding: 14px 28px;
-	font-size: 18px;
-	border: none;
-	border-radius: 10px;
-	cursor: pointer;
-	background: linear-gradient(45deg, #1e90ff, #00bfff);
-	color: #fff;
-	text-decoration: none;
-	text-align: center;
-	transition: all 0.3s ease;
-	min-width: 180px;
-}
+    .container h1 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      background: linear-gradient(to right, #6a5af9, #8a75f8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.btn-link:hover {
-	background: linear-gradient(45deg, #104e8b, #007acc);
-	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
+    .button-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-@media ( max-width : 480px) {
-	.container h1 {
-		font-size: 30px;
-	}
-	.btn-link {
-		font-size: 16px;
-		padding: 12px 20px;
-		min-width: 140px;
-	}
-}
-</style>
+    .btn-link {
+      padding: 14px 26px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(to right, var(--main-color), var(--accent-color));
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-link:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 480px) {
+      .container h1 {
+        font-size: 1.8rem;
+      }
+
+      .btn-link {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+        min-width: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-	<div class="container">
-		<h1>Your Details Saved Successfully!</h1>
-		<div class="button-group">
-			<a href="Studentdetails.html" class="btn-link">Back</a> <a
-				href="HomePage3.html" class="btn-link">Home</a>
-		</div>
-	</div>
+  <div class="container">
+    <h1>✅ Your Details Saved Successfully!</h1>
+    <div class="button-group">
+      <a href="Studentdetails.html" class="btn-link">Back</a>
+      <a href="HomePage3.html" class="btn-link">Home</a>
+    </div>
+  </div>
 
 </body>
 </html>
